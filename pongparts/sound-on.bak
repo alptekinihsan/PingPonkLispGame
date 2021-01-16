@@ -1,0 +1,21 @@
+#lang racket
+
+(provide play-pong-sound)
+
+(require rsound)
+
+(define BOOP-DURATION-MAC-PC 3000)
+
+(define BOOP-DURATION-LINUX 12000)
+(define BOOP-DURATION BOOP-DURATION-MAC-PC)
+
+(define (play-pong-sound what)
+  (begin
+    (cond
+
+      [(string=? what "paddle") (play (make-tone 360 10 BOOP-DURATION))]
+      [(string=? what "wall") (play (make-tone 260 10 BOOP-DURATION))]
+      [(string=? what "missed") (play (make-tone 160 10 20000))]
+      [else true]
+    )
+    true))

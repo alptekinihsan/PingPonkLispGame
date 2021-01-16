@@ -1,0 +1,65 @@
+#lang racket
+
+(provide 
+ SCREEN-WIDTH
+ SCREEN-HEIGHT
+ SHOW-PAD
+ PAD-HEIGHT
+ WIDTH
+ HEIGHT
+ CENTER-HORZ
+ CENTER-VERT
+ MARGIN
+ WALL-HEIGHT
+ PADDLE-HEIGHT
+ PADDLE-THICKNESS
+ BALL-SIZE
+ TOP
+ BOTTOM
+ LEFT
+ RIGHT
+ PADDLE-SPEED
+ INITIAL-SPEED
+ MAXIMUM-SPEED)
+
+(define screen-scale 1.5)
+(define SCREEN-WIDTH (* 830 screen-scale))
+(define SCREEN-HEIGHT (* 440 screen-scale))
+
+(define SHOW-PAD true)
+(define PAD-HEIGHT (round (* SCREEN-HEIGHT 0.2)))
+
+(define WIDTH SCREEN-WIDTH)
+(define HEIGHT (if SHOW-PAD (- SCREEN-HEIGHT PAD-HEIGHT) SCREEN-HEIGHT))
+
+(define CENTER-HORZ (round (/ WIDTH 2)))
+(define CENTER-VERT (round (/ HEIGHT 2)))
+
+(define MARGIN 10)
+
+(define WALL-HEIGHT 16)
+
+
+(define PADDLE-HEIGHT 90)
+
+
+(define PADDLE-THICKNESS 16)
+
+
+(define BALL-SIZE 16)
+
+(define TOP WALL-HEIGHT)
+(define BOTTOM (- HEIGHT WALL-HEIGHT))
+
+
+(define LEFT (+ PADDLE-THICKNESS MARGIN))
+(define RIGHT (- WIDTH (+ PADDLE-THICKNESS MARGIN)))
+
+
+(define PADDLE-SPEED 15)
+
+
+(define INITIAL-SPEED 45)
+
+
+(define MAXIMUM-SPEED 90)
